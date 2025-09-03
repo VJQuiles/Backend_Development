@@ -7,4 +7,9 @@
 {
     "name": "Project Name",
     "description": "Project Description"
+},
+
+{
+    "title": "Task Title",
+    "description": "Task Description",
 }
