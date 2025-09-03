@@ -23,7 +23,19 @@ async function getAllProjects(req, res) {
     }
 }
 
+async function getOneProject(req, res) {
+    try {
+        const project = await Project.findById(req.params.id)
+        return res.json(project)
+    } catch (error) {
+        console.error(`Error getting project with ID: ${req.params.id}: ${error}`)
+        return res.status(500).json({ error: "Error retrieving project." })
+    }
+}
+
 module.exports = {
     createProject,
     getAllProjects,
+    getOneProject,
+
 }
