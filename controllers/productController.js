@@ -28,8 +28,19 @@ async function getOneProject(req, res) {
         const project = await Project.findById(req.params.id)
         return res.json(project)
     } catch (error) {
-        console.error(`Error getting project with ID: ${req.params.id}: ${error}`)
-        return res.status(500).json({ error: "Error retrieving project." })
+        console.error(`Error getting project with ID: ${req.params.id} => ${error}`)
+        return res.status(500).json({ error: "Error retrieving project" })
+    }
+}
+
+async function updateProject(req, res) {
+    try {
+        const project = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!project) return res.status(404).json({ message: `Project with id ${req.params.id} does not exist.` })
+        return res.json(project)
+    } catch (error) {
+        console.error(`Error updating project with ID: ${req.params.id} => ${error}`)
+        return res.status(500).json({ error: "Error updating project" })
     }
 }
 
@@ -37,5 +48,5 @@ module.exports = {
     createProject,
     getAllProjects,
     getOneProject,
-
+    updateProject
 }

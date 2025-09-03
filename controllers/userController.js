@@ -53,7 +53,7 @@ async function loginUser(req, res) {
             { expiresIn: expiration },
             (error, token) => {
                 if (error) throw error
-                return res.status(200).json({ success: `Login Successful! User ID: ${user} Token: ${token}` })
+                return res.status(200).json({ success: `Login Successful! User ID: ${user.id} Token: ${token}` })
             }
         )
 
