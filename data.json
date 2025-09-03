@@ -2,4 +2,9 @@
     "username": "username1", 
     "email": "user@email.com", 
     "password": "wordPass"
+},
+
+{
+    "name": "Project Name",
+    "description": "Project Description"
 }
