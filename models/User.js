@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
         }
     },
     {
+        // Omission of the password when sending back user information.
         toJSON: {
             transform: (doc, ret) => {
                 delete ret.password
@@ -32,6 +33,7 @@ const userSchema = new mongoose.Schema(
     }
 )
 
+// Hashing of password with bcrypt for security.
 userSchema.pre("save", async function (next) {
     if (this.isNew || this.isModified("password")) {
         const saltRounds = 10
@@ -40,10 +42,12 @@ userSchema.pre("save", async function (next) {
     next()
 })
 
+// Password comparison for authentication in login.
 userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password)
 }
 
+// Put requests are top of mind here. Should a user update information, this is a safety check in case the validators in the schema don't run
 mongoose.set('runValidators', true)
 
 const User = mongoose.model("User", userSchema)
