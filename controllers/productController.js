@@ -44,9 +44,21 @@ async function updateProject(req, res) {
     }
 }
 
+async function deleteProject(req, res) {
+    try {
+        const project = await Project.findByIdAndDelete(req.params.id)
+        if (!project) return res.status(404).json({ message: "Project not found" })
+        return res.json({ message: `${req.params.title} successfully deleted` })
+    } catch (error) {
+        console.error(`Error deleting project with ID: ${req.params.id} => ${error}`)
+        return res.status(500).json({ error: "Error deleting project" })
+    }
+}
+
 module.exports = {
     createProject,
     getAllProjects,
     getOneProject,
-    updateProject
+    updateProject,
+    deleteProject
 }
