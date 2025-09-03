@@ -4,12 +4,17 @@ const projectSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, "Project name required."],
-            unique: true
+            required: [true, "Project name required"],
+            unique: true,
+            trim: true
         },
         description: {
             type: String,
-            required: [true, "Project Description required."]
+            required: [true, "Project Description required"]
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
         },
         user: {
             type: mongoose.Schema.ObjectId,
