@@ -4,6 +4,11 @@
     "password": "wordPass"
 }
 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY4Yjg1M2EyOWY2MzU1YTRkYzVjNDczMSIsInVzZXJuYW1lIjoidXNlcm5hbWUxIiwiZW1haWwiOiJ1c2VyQGVtYWlsLmNvbSJ9LCJpYXQiOjE3NTY5MzY1NzQsImV4cCI6MTc1Njk0MDE3NH0.4a538qSw6zvLT89GAMfMkPE4nFmn8_HhtSY1lx1NsaQ
+
+2
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY4YjhiNDIzZmQ0ZWUzZTcyMjZhZDY0OSIsInVzZXJuYW1lIjoidXNlcm5hbWUyIiwiZW1haWwiOiJ1c2VyMkBlbWFpbC5jb20ifSwiaWF0IjoxNzU2OTM3MjM5LCJleHAiOjE3NTY5NDA4Mzl9.rP1GNaEEgkKn-nsM_wBISVsCMj3ZvZvCwCST2dvc_w4
+
 {
     "username": "username2",
     "email": "user2@email.com",

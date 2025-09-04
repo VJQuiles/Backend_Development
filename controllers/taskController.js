@@ -38,7 +38,41 @@ async function getTasks(req, res) {
     }
 }
 
+async function updateTask(req, res) {
+    try {
+        const project = await Project.findById(req.params.projectId)
+
+        if (project === null) return res.status(404).json({ error: "Project does not exist" })
+
+        if (!project.user.equals(req.user._id)) return res.status(403).json({ message: "This is not your project" })
+
+        const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!task) return res.status(404).json({ message: `No task with ID: ${req.params.id}` })
+        return res.json(task)
+    } catch (error) {
+        return res.status(500).json({ error: `Error updating task: ${error.message}` })
+    }
+}
+
+async function deleteTask(req, res) {
+    try {
+        const project = await Project.findById(req.params.projectId)
+
+        if (project === null) return res.status(404).json({ error: "Project does not exist" })
+
+        if (!project.user.equals(req.user._id)) return res.status(403).json({ message: "This is not your project" })
+
+        const task = await Task.findByIdAndDelete(req.params.id)
+        if (!task) return res.status(404).json({ message: `No task with ID: ${req.params.id}` })
+        return res.json({ message: `${task.title} successfully deleted` })
+    } catch (error) {
+        return res.status(500).json({ error: `Error deleting task: ${error.message}` })
+    }
+}
+
 module.exports = {
     createTask,
-    getTasks
+    getTasks,
+    updateTask,
+    deleteTask
 }
