@@ -2,7 +2,13 @@
     "username": "username1", 
     "email": "user@email.com", 
     "password": "wordPass"
-},
+}
+
+{
+    "username": "username2",
+    "email": "user2@email.com",
+    "password": "wordPass2"
+}
 
 {
     "name": "Project Name",
@@ -11,5 +17,5 @@
 
 {
     "title": "Task Title",
-    "description": "Task Description",
+    "description": "Task Description"
 }
