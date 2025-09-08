@@ -1,0 +1,61 @@
+Backend Development
+
+Alright, just some initial thoughts on this project, I basically just have to do SBA 14 with an additional model. Also, for the routes connected between project and task, check out the office hour from 9/2 around 4:15 for a breakdown of how to approach it.
+
+
+File Tree
+
+config
+-connection.js
+controllers
+-userController.js
+-projectController.js
+-taskController.js
+models
+-user.js
+-project.js
+-task.js
+routes
+-index.js
+-api
+--index.js
+--userRoutes.js
+--projectRoutes.js
+--taskRoutes.js
+middleware
+-auth.js
+
+server.js
+
+Routes
+
+index.js('/api', apiRoutes)
+
+api
+-index.js
+('/users', userRoutes)
+('/projects', projectRoutes)
+('/tasks', taskRoutes)
+
+-userRoutes.js
+post('/register', userController.registerUser)
+post('/login', userController.loginUser)
+
+-projectRoutes.js
+post('/create-project', projectController.createProject)
+get('/user-projects', projectController.getAllProjects)
+get('/user-projects/:id', projectController.getOneProject)
+put('/update-project/:id', projectController.updateProject)
+delete('delete-project/:id', projectController.deleteProject)
+post('/:projectId/tasks', taskController.createTask)
+get('/:projectId/tasks', taskController.getAllTasks)
+
+-taskRoute.js
+put('/:taskId', taskController.updateTask)
+delete('/:taskId', taskcontroller.deleteTask)
+
+Local authorizaition middleware
+
+Maria, Dennis, James and Karl helped explain a disconnect i had when it came to project id. TaskCon line 7
+
+Bryan helped to walk me through how we do the checks for ids
